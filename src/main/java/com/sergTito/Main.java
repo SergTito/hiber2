@@ -1,5 +1,6 @@
 package com.sergTito;
 
+import com.sergTito.entity.Role;
 import com.sergTito.entity.UserssEntity;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -27,6 +28,7 @@ public class Main {
                     .lastname("Tito")
                     .birthdate(LocalDate.of(1995,6,1))
                     .age(29)
+                    .role(Role.ADMIN)
                     .build();
 
             session.persist(user);
