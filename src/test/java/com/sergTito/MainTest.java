@@ -22,11 +22,6 @@ class MainTest {
     @Test
     void checkReflectionAPI() throws SQLException, IllegalAccessException {
         UserssEntity user = UserssEntity.builder()
-                .username("SergeyTito@gmail.com")
-                .firstname("Sergey")
-                .lastname("Tito")
-                .birthdate(LocalDate.of(1995,6,1))
-                .age(29)
                 .build();
 
         String sql = """

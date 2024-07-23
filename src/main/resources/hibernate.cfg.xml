@@ -12,6 +12,7 @@
     <property name="hibernate.format_sql">true</property>
 
     <mapping class="com.sergTito.entity.UserssEntity"/>
+    <mapping class="com.sergTito.entity.CompanyEntity"/>
 
 
     <!-- DB schema will be updated if needed -->

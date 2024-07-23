@@ -1,5 +1,6 @@
 package com.sergTito.entity;
 
+import com.sergTito.converter.BirthdayConverter;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,12 +17,23 @@ import java.time.LocalDate;
 @Table(name = "userss",schema = "public")
 public class UserssEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    //hibernate_sequence
+//    @SequenceGenerator(name = "user_generator",sequenceName = "user_id_sequence",allocationSize = 1)
+    private Long id;
+
+
+    @AttributeOverride(name = "birthDate",column = @Column(name = "birth_date"))
+    private PersonalInfo personalInfo;
+
+    @Column(unique = true)
     private String username;
-    private String firstname;
-    private String lastname;
-    @Column(name = "birth_date")
-    private LocalDate birthdate;
-    private int age;
+
+
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    @ManyToOne
+    @JoinColumn(name = "company_id")
+    private CompanyEntity company;
 }
