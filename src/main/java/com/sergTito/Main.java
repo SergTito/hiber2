@@ -2,6 +2,7 @@ package com.sergTito;
 
 import com.sergTito.converter.BirthdayConverter;
 import com.sergTito.entity.*;
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -40,6 +41,11 @@ public class Main {
             try (session) {
                 Transaction transaction = session.beginTransaction();
 
+                UserssEntity user1 = session.get(UserssEntity.class, 1L);
+//                CompanyEntity company1 = user1.getCompany();
+//                String name = company1.getName();
+//                Object object = Hibernate.unproxy(company1);
+                session.evict(user);
 
 //                session.save(company);
 //                session.save(user);
